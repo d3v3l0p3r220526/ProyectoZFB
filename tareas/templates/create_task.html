@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container py-5">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">            
+
+            <form action="/tareas/create/" method="POST" class="card card-body">
+                <h1 class="text-center py-5">Crear Solicitud</h1>
+                {{error}}
+                {% csrf_token%}            
+                {{form}}
+            
+                <button>
+                    Crear Solicitud
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+</main>
+
+{% endblock %}
