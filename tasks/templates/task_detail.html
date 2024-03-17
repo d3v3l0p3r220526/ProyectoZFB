@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+                     
+            <h1>{{task.title}}</h1>
+
+            {{error}}
+            
+
+            <form  method="POST" onsubmit="alert('Su solicitud ha sido actualizada')">               
+                {% csrf_token %}
+                {{form.as_p}}
+
+                <button>
+                    Actualizar                
+                </button>     
+             
+            </form>
+
+            <form action="{% url 'complete_task' task.id %}" method="POST">
+
+                {% csrf_token %}
+                <button class="btn btn-success">
+                    Complete
+                </button>
+            </form>
+
+            <form action="{% url 'delete_task' task.id %}" method="POST"onsubmit="alert('¿Esta seguro de eliminar esta solicitud?')">
+
+                {% csrf_token %}
+                
+                <button class="btn btn-danger btnEliminar">
+                    Eliminar
+                </button>
+            </form>
+
+        </div>
+    </div>  
+</main>
+
+{% endblock %}

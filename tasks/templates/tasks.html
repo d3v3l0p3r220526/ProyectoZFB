@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center py-2">Solicitudes de ingreso pendientes</h1>
+
+            <ul class="list-group">
+                {% for task in tasks %}
+                <li class="list-group-item-action active mx-4 px-4">
+                    <a href="{% url 'task_detail' task.id %}">
+    
+                        <header class="d-flex justify-content-between">
+                            {% if task.important %}
+                                <h1 class=" fw-bold text-danger">{{task.empresa}}</h1>
+                            {% else %}
+                                <h1 class="fw-bold text-secondary">{{task.empresa}}</h1>
+                                <!-- <p>{{task.empresa}}</p> -->
+                            {% endif %}
+                            
+                            <p>{{task.user.username}}</p>
+                            
+                        </header>
+
+                        <p>{{task.important}}</p>
+                        <p><strong>Fecha Inicial:</strong>{{task.date_ini}} / <strong> Fecha final</strong>  {{task.date_end}} </p>
+                        <!-- <p>{{task.date_end}}</p> -->
+                        <p>{{task.date.completed|date:'M j Y:i'}}</p>
+    
+                    
+                    </a>        
+                </li>
+                {% endfor %}
+            </ul>    
+        </div>
+    </div>
+    
+    
+</main>
+{% endblock %}
+
+

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="container py-5">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">            
+
+            <form action="/tasks/create/" method="POST" class="card card-body" onsubmit="alert('Su solicitu ha sido creada con exito')">
+                <img src="{% static 'images\descargazf.png' %}" alt="descargazf" width="200 " class="d-flex align-self-center mr-3">
+
+                <h1 class="text-center py-5">Crear Solicitud</h1>
+                {{error}}
+                {% csrf_token%}            
+                {{form.as_p}} 
+
+                <!-- <div class="mb-3">
+                    <label for="Documento de identidad">Documento de identidad: </label>
+                    <input type="number" name="Documeto de Identidad" id="Documento de identidad" placeholder="Documento de identidad" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="username">Nombres </label>
+                    <input type="text" name="username" id="username" placeholder="Nombres" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="username">Apellidos </label>
+                    <input type="text" name="username" id="username" placeholder="Nombres" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="username">Empresa </label>
+                    <input type="text" name="username" id="username" placeholder="Empresa" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="username">EPS </label>
+                    <input type="text" name="username" id="username" placeholder="Empresa" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="username">ARL </label>
+                    <input type="text" name="username" id="username" placeholder="Empresa" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="username">Fecha de inicio </label>
+                    <input type="date" name="username" id="username" placeholder="Empresa" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="username">Fecha Final </label>
+                    <input type="date" name="username" id="username" placeholder="Empresa" class="form-control">
+                </div>  -->
+            
+                <button>
+                    Crear Solicitud
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+</main>
+
+{% endblock %}

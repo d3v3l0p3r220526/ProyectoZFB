@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tareas'
+    'tasks'
 ]
 
 MIDDLEWARE = [
@@ -113,10 +114,21 @@ USE_I18N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+LOGIN_URL = '/signin'
+
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 58711
+EMAIL_HOST_USER = 'j.castaneda1140@gmail.com'
+EMAIL_HOST_PASSWORD = 'USER_MAIL_PASSWORD'
+
+
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static\images'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

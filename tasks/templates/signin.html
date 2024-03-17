@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Javascript -->
+<!-- <script>
+    alert("Esta apunto de iniciar sesion ¿Estas Seguro? ")
+</script> -->
+
+<!-- Modulo Inicio de Sesion -->
+
+<main class="container">
+    <div class="row">
+        <section class="col-md-4 offset-md-4 mt-5">
+
+            <!-- Formulario para inicio de sesion -->
+            <form action="/signin/" method="POST" class="card card-body">
+
+
+
+             <!-- Mensaje de error -->
+                <h1 class="btn btn-warning" id="liveAlertBtn">{{error}}</h1>            
+                {% csrf_token %}
+
+                <img src="{% static 'images\descargazf.png' %}" alt="descargazf" width="200 " class="d-flex align-self-center mr-3">
+
+                    <h1 class="text-center">Iniciar Sesion</h1>
+               
+                               
+                <div class="mb-3">
+                    <label for="username">Usuario: </label>
+                    <input type="text" name="username" id="username" placeholder="Usuario" class="form-control">
+                </div> 
+                
+                <div class="mb-3">
+                    <label for="password">Contraseña: </label>
+                    <input type="password" name="password" id="password" placeholder="Escriba aqui su clave" class="form-control">
+                </div> 
+
+                               
+                <button class="btn btn-success">                        
+                    Iniciar Sesion
+                </button> 
+            </form>       
+            
+                
+           
+        </section>
+    </div>
+
+
+
+</main>
+
+    
+
+
+{% endblock %}
+
